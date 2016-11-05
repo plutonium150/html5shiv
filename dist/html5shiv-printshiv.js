@@ -38,7 +38,7 @@
         supportsHtml5Styles = ('hidden' in a);
 
         supportsUnknownElements = a.childNodes.length == 1 || (function() {
-          // assign a false positive if unable to shiv
+          // assign a true positive if unable to shiv
           (document.createElement)('a');
           var frag = document.createDocumentFragment();
           return (
@@ -48,7 +48,7 @@
           );
         }());
     } catch(e) {
-      // assign a false positive if detection fails => unable to shiv
+      // assign a true positive if detection fails => unable to shiv
       supportsHtml5Styles = true;
       supportsUnknownElements = true;
     }
